@@ -6,15 +6,15 @@
     <h1 class="col-md-12"> Spa Services</h1>
     <img src="~/Images/spaServices.jpg" alt="spa services" class="col-md-6 rounded-6 pr-md-4" />
     <ol class="col-md-6" >
-        <li>Full-Day Treatment Package</li>
-        <li>Half-Day Treatment Package</li>
-        <li>Two-Hour Treatment Package</li>
-        <li>One-Hour Treatment Package</li>
-        <li>Other Services</li>
+        <li><a asp-fragment="full">Full-Day Treatment Package</a></li>
+        <li><a asp-fragment="half">Half-Day Treatment Package</a></li>
+        <li><a asp-fragment="two">Two-Hour Treatment Package</a></li>
+        <li><a asp-fragment="one">One-Hour Treatment Package</a></li>
+        <li><a asp-fragment="other">Other Services</a></li>
     </ol>
 </div>
 
-<h1>Full-Day Treatment Package</h1>
+<h1 id="full">Full-Day Treatment Package</h1>
 
 <p>Includes all the following services:</p>
 
@@ -44,7 +44,7 @@
 
 <p>Approximately 7 Hours </p>
 <hr />
-<h1>Half-Day Treatment Package</h1>
+<h1 id="half">Half-Day Treatment Package</h1>
 
 <p>Includes hair, makeup and two services of your choice:</p>
 
@@ -70,7 +70,7 @@
 <p>Approximately 4 Hours </p>
 
 <hr />
-<h1>Two-Hour Treatment Package</h1>
+<h1 id="two">Two-Hour Treatment Package</h1>
 
 <p>Includes hair, makeup and one service of your choice:</p>
 
@@ -95,14 +95,14 @@
 <p>Approximately 2-3 Hours </p>
 
 <hr />
-<h1>One Hour Treatment Package</h1>
+<h1 id="one">One Hour Treatment Package</h1>
 
 <p>Includes hair or makeup and manicure or pedicure</p>
 
 <p>Approximately 1-2 Hours </p>
 <hr />
 
-<h1>Salon Packages</h1>
+<h1 id="other">Salon Packages</h1>
 <h3>Cuts</h3>
 <ul>
     <li>Full</li>

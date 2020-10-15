@@ -23,7 +23,37 @@ namespace RazorPages.Controllers
         {
             return View(await _context.Services.ToListAsync());
         }
- 
+        //GET
+        public IActionResult Descriptions()
+        {
+            ViewBag.Classifications = _context.Services.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Descriptions(Services model)
+        {
+            var viewName = "";
+            switch(model.Classification)
+            {
+                case "Full":
+                    viewName = "full";
+                    break;
+                case "Half":
+                    viewName = "half";
+                    break;
+                case "Two":
+                    viewName = "two";
+                    break;
+                case "One":
+                    viewName = "one";
+                    break;
+                default:
+                    viewName = "other";
+                    break;
+            }
+            return View(viewName, model);
+        }
 
         // GET: Service/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -39,7 +69,7 @@ namespace RazorPages.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.fee = services.Fee;
             return View(services);
         }
 

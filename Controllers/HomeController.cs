@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using RazorPages.Models;
 
 namespace RazorPages.Controllers
@@ -28,11 +26,14 @@ namespace RazorPages.Controllers
         [HttpGet]
         public IActionResult InquiryForm()
         {
+            ViewBag.Posted = false;
+            ViewData["ServicesID"] = new SelectList(_context.Services, "Classification", "Classification");
             return View();
         }
         [HttpPost]
         public IActionResult InquiryForm(Contact model)
         {
+            ViewBag.Posted = true;
             return View(model);
         }
         public IActionResult Privacy()
