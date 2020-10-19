@@ -10,6 +10,10 @@ namespace RazorPages.Models
         public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<Services> Services { get; set; }
+        
+        public DbSet<Client> Clients { get; set; }
+
+        public DbSet<ClientService> ClientServices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +31,17 @@ namespace RazorPages.Models
                new Contact { ID = 2, Name = "Barney Rubble", ServicesID = 7, ContactEmail = "Barn@rubb.com" },
                new Contact { ID = 3, Name = "Betty Rubble", ServicesID = 5, ContactEmail = "betts@rubb.com" }
                );
+
+            modelBuilder.Entity<Client>().HasData(
+                new Client { ID = 1, FirstName = "Flo", LastName = "Schmoe", Username = "Flo", Email = "flo@schmoe.net", Password = "FloSchmoe1234*" },
+                new Client { ID = 2, FirstName = "Jo", LastName = "Schmoe", Username = "JoJo", Email = "jojo@schmoe.net", Password = "JoJoSchmoe1234?" },
+                new Client { ID = 3, FirstName = "Truly", LastName = "Schmoe", Username = "Truly", Email = "truly@schmoe.net", Password = "Truly9876**" }
+);
+            modelBuilder.Entity<ClientService>().HasData(
+                new ClientService { ID = 1, ClientID = 1, ServicesID = 1 },
+                new ClientService { ID = 2, ClientID = 2, ServicesID = 7 },
+                new ClientService { ID = 3, ClientID = 1, ServicesID = 5 }
+            );
         }
     }
 }
